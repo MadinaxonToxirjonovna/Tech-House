@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="about.css">
-    <title>Biz haqimizda</title>
+    <link rel="stylesheet" href="./style/contact.css">
+    <title>Bog'lanish</title>
 </head>
 <body>
-<header class="header">
+
+    <header class="header">
   <div class="container">
     <div class="top-bar">
       
       <div class="logo">
-        <a href="home.html"><img src="./images/logo.png" alt="logo"></a>
+        <a href="./home.html"><img src="../images/logo.png" alt="logo"></a>
       </div>
       <div class="search">
-        <img src="./images/search.svg" alt="search">
+        <img src="../images/search.svg" alt="search">
         <input id="globalSearch" type="text" placeholder="Nimani qidiryapsiz?">
       </div>
 
       <div class="nav-icons">
 
         <a class="sevimlilarr" href="./favorites.html">
-          <img src="./images/sevimlilar1.png" alt="sevimlilar">
+          <img src="../images/sevimlilar1.png" alt="sevimlilar">
           <span>Sevimlilar <b id="favCount">(0)</b></span>
         </a>
 
         <a class="savatchaa" href="./cart.html">
-          <img src="./images/savatcha.png" alt="savatcha">
+          <img src="../images/savatcha.png" alt="savatcha">
           <span>Savatcha <b id="cartCount">(0)</b></span>
         </a>
 
@@ -38,157 +39,98 @@
 
     <div class="bottom-bar">
       <nav>
-        <a href="home.html">Bosh sahifa</a>
-        <a href="products.html">Mahsulotlar</a>
-        <a href="membership.html">A'zolik/Ta'riflar</a>
-        <a href="about.html">Biz haqimizda</a>
-        <a href="contact.html">Bog'lanish</a>
+        <a href="./home.html">Bosh sahifa</a>
+        <a href="./products.html">Mahsulotlar</a>
+        <a href="./membership.html">A'zolik/Ta'riflar</a>
+        <a href="./about.html">Biz haqimizda</a>
+        <a href="./contact.html">Bog'lanish</a>
       </nav>
     </div>
   </div>
 </header>
 
-<section class="hero">
-    <img class="hero__bg" src="./images/about us.png" alt="About bg">
+    <section class="c-hero">
+        <div class="container">
+    <div class="c-hero__left">
+      <h1 class="c-hero__title">Bog'lanish</h1>
+      <p class="c-hero__sub">Savollaringiz bormi? Biz bilan bog'laning!</p>
+    </div>
+</div>
+</section>
 
-    <div class="container hero__grid">
-      <div class="hero__content">
-        <h1 class="hero__title">About Us</h1>
-        <p class="hero__sub">Ishonchli texnika do‘koni</p>
-         <hr class="hero_hr">
-        <p class="hero__desc">
-          Bizning maqsad — sizga eng yaxshi xizmat <br>
-          va sifatli texnika mahsulotlarini taqdim etish!
-        </p>
+<section class="c-main">
+  <div class="container">
+    <div class="c-grid">
+      <div class="c-left">
+        <h2 class="c-h2">Biz bilan bog'laning</h2>
+        <hr class="hr">
+
+        <div class="c-infoCard">
+          <div class="c-ico"><img src="../images/phone contact.svg" alt="phone"></div>
+          <div class="c-infoText">+998 90 123 45 67</div>
+        </div>
+
+        <div class="c-infoCard">
+          <div class="c-ico"><img src="../images/mail  contact.svg" alt="gmail"></div>
+          <div class="c-infoText">info@techhouse.uz</div>
+        </div>
+
+        <div class="c-infoCard">
+          <div class="c-ico"><img src="../images/location contact.svg" alt="location"></div>
+          <div class="c-infoText">Toshkent, Amir Temur ko'chasi 55</div>
+        </div>
+
+      </div>
+
+      <div class="c-right">
+        <form id="contactForm" class="c-form">
+          <h2 class="c-form__title">Bizga xabar yuboring</h2>
+
+          <label class="c-field">
+            <input type="text" placeholder="Ismingiz" required>
+          </label>
+
+          <label class="c-field">
+            <input type="tel" placeholder="Telefon" required>
+          </label>
+
+          <label class="c-field">
+            <input type="email" placeholder="E-mail" required>
+          </label>
+
+          <label class="c-field">
+            <textarea placeholder="Xabaringiz" rows="5" required></textarea>
+          </label>
+
+          <button class="c-submit" type="submit">Xabarni yuborish  ></button>
+        </form>
       </div>
     </div>
 </section>
 
+<div class="c-man"></div>
 
-  <section id="biz-kimmiz" class="section">
-    <div class="container">
-    <div class="about__grid">
-      <div class="about__text">
-        <h2 class="section__title">Biz kimmiz?</h2>
-        <hr class="about_hr">
-        <p class="about__p">
-          <b>Tech House</b> - zamonaviy texnika do‘koni, biz eng so‘nggi <br>
-          maishiy texnika va elektronika mahsulotlarini taklif etamiz. <br>
-          Tajribali jamoamiz sizga har doim yordam berishga tayyor!
-        </p>
+<section class="c-mapWrap">
+        <div class="container">
+      <div class="c-mapCard">
+        <iframe
+          title="Tech House map"
+          src="https://www.google.com/maps?q=Tashkent%20Amir%20Temur%2055&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
       </div>
 
-      <div class="about__media">
-        <img src="./images/about.png" alt="Jamoa rasmi">
-      </div>
-    </div>
-    </div>
-  </section>
+ </section>
 
-  <section class="section section--soft">
-    <div class="container">
-      <h2 class="section__title">Nima uchun biz?</h2>
-      <hr class="section_hr">
-
-      <div class="features__row">
-
-        <div class="feature">
-          <div class="feature__ico">
-            <img src="./images/yetkazib berish.png" alt="yetkazib">
-          </div>
-          <div class="feature__txt">
-            <h4 class="feature__title">Bepul yetkazib berish</h4>
-            <p class="feature__desc">200 000 so‘mdan yuqori buyurtmalar uchun</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature__ico">
-            <img src="./images/hamyon.png" alt="hamyon">
-          </div>
-          <div class="feature__txt">
-            <h4 class="feature__title">Muddatli to‘lovga sotib olish</h4>
-            <p class="feature__desc">Qulay bo‘lishi uchun</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature__ico">
-            <img src="./images/aloqa.png" alt="aloqa">
-          </div>
-          <div class="feature__txt">
-            <h4 class="feature__title">24/7 Aloqadamiz</h4>
-            <p class="feature__desc">Doimo aloqadamiz</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section__title">Bizning natijalar</h2>
-      <hr class="section_hr">
-      <div class="stats">
-        <div class="stat">
-          <div class="stat__content">
-            <div class="stat__num">50,000+</div>
-            <div class="stat__label">Baxtli Mijozlar</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat__content">
-            <div class="stat__num">5</div>
-            <div class="stat__label">Filiallar</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat__content">
-            <div class="stat__num">4</div>
-            <div class="stat__label">Yil Tajriba</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--soft">
-    <div class="container">
-      <h2 class="section__title">Maqsadimiz va qadriyatlarimiz</h2>
-      <hr class="section_hr">
-      <div class="info2">
-        <article class="info2__card">
-          <div class="info2__content">
-            <h3 class="info2__t">Maqsadimiz</h3>
-            <hr class="info_hr">
-            <p class="info2__d">
-              Sizga eng yaxshi texnika va xizmatni taqdim etish.
-            </p>
-          </div>
-        </article>
-
-        <article class="info2__card">
-          <div class="info2__content">
-            <h3 class="info2__t">Qadriyatlarimiz</h3>
-            <hr class="info_hr">
-            <p class="info2__d">
-              Ishonchlilik, sifat va mijozlarimizga sadoqat.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer">
     <div class="container footer__grid">
 
       <div class="footer__about">
         <div class="footer__logo">
-          <img src="./images/logo 1.png" alt="Tech House logo">
+          <img src="../images/logo 1.png" alt="Tech House logo">
         </div>
 
         <p class="footer__desc">
@@ -250,9 +192,9 @@
       <div class="footer__col">
         <h4>Biz bilan aloqa</h4>
 
-        <p><img class="icon" src="./images/telephone.svg"> +998 (90) 123-45-67</p>
-        <p><img class="icon" src="./images/gmail.svg"> info@techhouse.uz</p>
-        <p><img class="icon" src="./images/location.svg"> Toshkent, Amir Temur 55</p>
+        <p><img class="icon" src="../images/telephone.svg"> +998 (90) 123-45-67</p>
+        <p><img class="icon" src="../images/gmail.svg"> info@techhouse.uz</p>
+        <p><img class="icon" src="../images/location.svg"> Toshkent, Amir Temur 55</p>
 
 
 
@@ -265,7 +207,6 @@
     </div>
   </footer>
 
-  <script src="about.js"></script>
-
+<script src="./js/contact.js"></script>
 </body>
 </html>

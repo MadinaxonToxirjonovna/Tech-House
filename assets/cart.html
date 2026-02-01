@@ -1,34 +1,35 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahsulotlar</title>
-  <link rel="stylesheet" href="products.css" />
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savatcha</title>
 
- <header class="header">
+    <link rel="stylesheet" href="./style/cart.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+<header class="header">
   <div class="container">
     <div class="top-bar">
       
       <div class="logo">
-        <a href="home.html"><img src="./images/logo.png" alt="logo"></a>
+        <a href="./home.html"><img src="../images/logo.png" alt="logo"></a>
       </div>
       <div class="search">
-        <img src="./images/search.svg" alt="search">
+        <img src="../images/search.svg" alt="search">
         <input id="globalSearch" type="text" placeholder="Nimani qidiryapsiz?">
       </div>
 
       <div class="nav-icons">
 
         <a class="sevimlilarr" href="./favorites.html">
-          <img src="./images/sevimlilar1.png" alt="sevimlilar">
+          <img src="../images/sevimlilar1.png" alt="sevimlilar">
           <span>Sevimlilar <b id="favCount">(0)</b></span>
         </a>
 
         <a class="savatchaa" href="./cart.html">
-          <img src="./images/savatcha.png" alt="savatcha">
+          <img src="../images/savatcha.png" alt="savatcha">
           <span>Savatcha <b id="cartCount">(0)</b></span>
         </a>
 
@@ -39,97 +40,51 @@
 
     <div class="bottom-bar">
       <nav>
-        <a href="home.html">Bosh sahifa</a>
-        <a href="products.html">Mahsulotlar</a>
-        <a href="membership.html">A'zolik/Ta'riflar</a>
-        <a href="about.html">Biz haqimizda</a>
-        <a href="contact.html">Bog'lanish</a>
+        <a href="./home.html">Bosh sahifa</a>
+        <a href="./products.html">Mahsulotlar</a>
+        <a href="./membership.html">A'zolik/Ta'riflar</a>
+        <a href="./about.html">Biz haqimizda</a>
+        <a href="./contact.html">Bog'lanish</a>
       </nav>
     </div>
   </div>
 </header>
 
-  <main class="page">
+
+  <section class="cartPage">
     <div class="container">
+      <h1 class="mini-title">Savatcha</h1>
+      <hr class="mini-hr">
 
-      <div class="topBar">
-        <div>
-          <h2 class="pageTitle" id="pageTitle">Oshxona texnikasi</h2>
-          <p class="muted">Natija: <b id="resultCount">0</b></p>
-        </div>
+      <div class="cartGrid">
+        <div class="cartList" id="cartItems"></div>
 
-        <div class="topBar__right">
-          <label class="sortLabel" for="sortSelect">Saralash</label>
-          <select id="sortSelect" class="sortSelect">
-            <option value="popular">Ommabop</option>
-            <option value="new">Yangi</option>
-            <option value="cheap">Narx: arzon</option>
-            <option value="expensive">Narx: qimmat</option>
-            <option value="rating">Reyting</option>
-          </select>
-        </div>
-      </div>
+        <aside class="cartSummary">
+          <h3>Buyurtma xulosasi</h3>
 
-      <section class="layout">
-        <aside class="side">
-          <div class="card sideCard">
-            <h3 class="sideTitle">Kategoriyalar</h3>
-            <div class="divider"></div>
-
-            <ul class="catList" id="catList">
-              
-            </ul>
+          <div class="sumRow">
+            <span>Mahsulotlar soni</span>
+            <b id="itemCount">0</b>
           </div>
 
-          <div class="card sideCard">
-            <h3 class="sideTitle">Filtrlash</h3>
-            <div class="divider"></div>
-
-            <label class="fieldLabel">Qidiruv</label>
-            <input id="searchInput" class="fieldInput" type="text" placeholder="Mahsulot nomi..." />
-
-            <label class="fieldLabel">Narx (so'm)</label>
-            <div class="grid2">
-              <input id="minPrice" class="fieldInput" type="number" placeholder="Min" />
-              <input id="maxPrice" class="fieldInput" type="number" placeholder="Max" />
-            </div>
-
-            <label class="fieldLabel">Minimal reyting</label>
-            <select id="minRating" class="fieldInput">
-              <option value="0">Hammasi</option>
-              <option value="3">3+ ⭐</option>
-              <option value="4">4+ ⭐</option>
-              <option value="4.5">4.5+ ⭐</option>
-            </select>
-
-            <div class="btnRow">
-              <button class="btn primary" id="applyBtn" type="button">Qo'llash</button>
-              <button class="btn ghost" id="resetBtn" type="button">Tozalash</button>
-            </div>
+          <div class="sumRow">
+            <span>Jami summa</span>
+            <b id="totalPrice">0 so'm</b>
           </div>
+
+          <button class="checkoutBtn" type="button">Buyurtma berish</button>
+          <button class="clearBtn" id="clearCart" type="button">Savatchani tozalash</button>
         </aside>
-
-        
-
-        <section class="content">
-          <div class="grid" id="productsGrid">
-          </div>
-          <div class="pager">
-            <button class="btn dark" id="prevBtn" type="button">Oldinga</button>
-            <button class="btn dark" id="nextBtn" type="button">Keyingisi</button>
-          </div>
-        </section>
-      </section>
-
+      </div>
     </div>
-  </main>
+  </section>
 
   <footer class="footer">
     <div class="container footer__grid">
 
       <div class="footer__about">
         <div class="footer__logo">
-          <img src="./images/logo 1.png" alt="Tech House logo">
+          <img src="../images/logo 1.png" alt="Tech House logo">
         </div>
 
         <p class="footer__desc">
@@ -146,7 +101,7 @@
             </svg>
           </a>
           <a data-social="Telegram" style="--accent-color: #229ED9;" href="https://t.me/codingtogo" target="_blank">
-            <img style="width: 35px; height: 35px;" src="./images/telegram.svg" alt="telegram">
+            <img style="width: 35px; height: 35px;" src="../images/telegram.svg" alt="telegram">
           </a>
           <a data-social="Instagram" style="--accent-color: #fe107c;" href="#">
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -170,10 +125,10 @@
       <div class="footer__col">
         <h4>Havolalar</h4>
         <ul>
-          <li><a href="#">Asosiy</a></li>
-          <li><a href="#">Xizmatlar</a></li>
-          <li><a href="#">Paketlar</a></li>
-          <li><a href="#">Aloqa</a></li>
+          <li><a href="./home.html">Asosiy</a></li>
+          <li><a href="./products.html">Xizmatlar</a></li>
+          <li><a href="./membership.html">Paketlar</a></li>
+          <li><a href="./contact.html">Aloqa</a></li>
         </ul>
       </div>
 
@@ -191,9 +146,9 @@
       <div class="footer__col">
         <h4>Biz bilan aloqa</h4>
 
-        <p><img class="icon" src="./images/telephone.svg"> +998 (90) 123-45-67</p>
-        <p><img class="icon" src="./images/gmail.svg"> info@techhouse.uz</p>
-        <p><img class="icon" src="./images/location.svg"> Toshkent, Amir Temur 55</p>
+        <p><img class="icon" src="../images/telephone.svg"> +998 (90) 123-45-67</p>
+        <p><img class="icon" src="../images/gmail.svg"> info@techhouse.uz</p>
+        <p><img class="icon" src="../images/location.svg"> Toshkent, Amir Temur 55</p>
 
 
 
@@ -206,7 +161,6 @@
     </div>
   </footer>
 
-
-  <script src="products.js"></script>
-</body>
-</html>
+  <script src="./js/cart.js"></script>
+  </body>
+  </html>

@@ -1,44 +1,44 @@
 const PRODUCTS_POPULAR = [
-  { id:"p1",  name:"Blender",        title:"Bosch 1200W, 2 tezlik",              price:649000,  image:"./images/blender.png",   category:"Oshxona texnikasi", rating:4.6 },
-  { id:"p2",  name:"Mikser",         title:"BOMA qo'l mikseri, 5 tezlik",        price:289000,  image:"./images/mixer.png",     category:"Oshxona texnikasi", rating:4.4 },
-  { id:"p3",  name:"Elektr choynak", title:"Xiaomi Kettle 1.5L",                 price:259000,  image:"./images/kettle.png",    category:"Oshxona texnikasi", rating:4.5 },
-  { id:"p4",  name:"Mikroto'lqinli pech", title:"Panasonic 20L, 800W",                price:1099000, image:"./images/micro.png",     category:"Oshxona texnikasi", rating:4.4 },
-  { id:"p5",  name:"Air Fryer",      title:"6L, 10 dastur",                      price:899000,  image:"./images/airfryer.png",  category:"Oshxona texnikasi", rating:4.6 },
-  { id:"p6",  name:"Kofe mashina",   title:"DeLonghi, Cappuccino",               price:2999000, image:"./images/coffee.png",    category:"Oshxona texnikasi", rating:4.7 },
-  { id:"p7",  name:"Toster",         title:"2 bo'limli, 7 rejim",                price:299000,  image:"./images/toaster.png",   category:"Oshxona texnikasi", rating:4.3 },
-  { id:"p8",  name:"Sharbat chiqargich", title:"800W, 2 tezlik",                 price:599000,  image:"./images/juicer.png",    category:"Oshxona texnikasi", rating:4.4 },
-  { id:"p9",  name:"Changyutgich",   title:"Samsung 2000W, HEPA filter",         price:1299000, image:"./images/vacuum.png",    category:"Tozalash texnikasi", rating:4.6 },
-  { id:"p10", name:"Robot changyutgich", title:"Smart mapping, 2500Pa",          price:2499000, image:"./images/robotvac.png",  category:"Tozalash texnikasi", rating:4.7 },
-  { id:"p11", name:"Bug'li tozalagich",  title:"Steam Cleaner 1500W",            price:899000,  image:"./images/steam.png",     category:"Tozalash texnikasi", rating:4.5 },
-  { id:"p12", name:"Kir yuvish mashina", title:"LG 7kg, Inverter",               price:4599000, image:"./images/washing.png",   category:"Tozalash texnikasi", rating:4.7 },
-  { id:"p13", name:"Idish yuvish mashina", title:"12 to'plam, Eco rejim",        price:5399000, image:"./images/dishwasher.png",category:"Tozalash texnikasi", rating:4.6 },
-  { id:"p14", name:"Quritish mashina", title:"8kg, Sensor Dry",                  price:5799000, image:"./images/dryer.png",     category:"Tozalash texnikasi", rating:4.5 },
+  { id:"p1",  name:"Blender",        title:"Bosch 1200W, 2 tezlik",              price:649000,  image:"/images/blender.png",   category:"Oshxona texnikasi", rating:4.6 },
+  { id:"p2",  name:"Mikser",         title:"BOMA qo'l mikseri, 5 tezlik",        price:289000,  image:"/images/mixer.png",     category:"Oshxona texnikasi", rating:4.4 },
+  { id:"p3",  name:"Elektr choynak", title:"Xiaomi Kettle 1.5L",                 price:259000,  image:"/images/kettle.png",    category:"Oshxona texnikasi", rating:4.5 },
+  { id:"p4",  name:"Mikroto'lqinli pech", title:"Panasonic 20L, 800W",                price:1099000, image:"/images/micro.png",     category:"Oshxona texnikasi", rating:4.4 },
+  { id:"p5",  name:"Air Fryer",      title:"6L, 10 dastur",                      price:899000,  image:"/images/airfryer.png",  category:"Oshxona texnikasi", rating:4.6 },
+  { id:"p6",  name:"Kofe mashina",   title:"DeLonghi, Cappuccino",               price:2999000, image:"/images/coffee.png",    category:"Oshxona texnikasi", rating:4.7 },
+  { id:"p7",  name:"Toster",         title:"2 bo'limli, 7 rejim",                price:299000,  image:"/images/toaster.png",   category:"Oshxona texnikasi", rating:4.3 },
+  { id:"p8",  name:"Sharbat chiqargich", title:"800W, 2 tezlik",                 price:599000,  image:"/images/juicer.png",    category:"Oshxona texnikasi", rating:4.4 },
+  { id:"p9",  name:"Changyutgich",   title:"Samsung 2000W, HEPA filter",         price:1299000, image:"/images/vacuum.png",    category:"Tozalash texnikasi", rating:4.6 },
+  { id:"p10", name:"Robot changyutgich", title:"Smart mapping, 2500Pa",          price:2499000, image:"/images/robotvac.png",  category:"Tozalash texnikasi", rating:4.7 },
+  { id:"p11", name:"Bug'li tozalagich",  title:"Steam Cleaner 1500W",            price:899000,  image:"/images/steam.png",     category:"Tozalash texnikasi", rating:4.5 },
+  { id:"p12", name:"Kir yuvish mashina", title:"LG 7kg, Inverter",               price:4599000, image:"/images/washing.png",   category:"Tozalash texnikasi", rating:4.7 },
+  { id:"p13", name:"Idish yuvish mashina", title:"12 to'plam, Eco rejim",        price:5399000, image:"/images/dishwasher.png",category:"Tozalash texnikasi", rating:4.6 },
+  { id:"p14", name:"Quritish mashina", title:"8kg, Sensor Dry",                  price:5799000, image:"/images/dryer.png",     category:"Tozalash texnikasi", rating:4.5 },
 
-  { id:"p15", name:"Konditsioner",   title:"Artel 12 BTU Inverter",              price:5899000, image:"./images/ac.png",        category:"Isitish va sovutish", rating:4.5 },
-  { id:"p16", name:"Ventilyator",    title:"3 tezlik, Quiet mode",               price:299000,  image:"./images/fan.png",       category:"Isitish va sovutish", rating:4.3 },
-  { id:"p17", name:"Isitgich",       title:"2000W, Termostatli",                 price:399000,  image:"./images/heater.png",    category:"Isitish va sovutish", rating:4.4 },
-  { id:"p18", name:"Havo namlagich", title:"3L, Night mode",                     price:349000,  image:"./images/humidifier.png",category:"Isitish va sovutish", rating:4.5 },
-  { id:"p19", name:"Havo tozalagich",title:"HEPA 13, 3 rejim",                   price:1199000, image:"./images/airpurifier.png",category:"Isitish va sovutish", rating:4.6 },
+  { id:"p15", name:"Konditsioner",   title:"Artel 12 BTU Inverter",              price:5899000, image:"/images/ac.png",        category:"Isitish va sovutish", rating:4.5 },
+  { id:"p16", name:"Ventilyator",    title:"3 tezlik, Quiet mode",               price:299000,  image:"/images/fan.png",       category:"Isitish va sovutish", rating:4.3 },
+  { id:"p17", name:"Isitgich",       title:"2000W, Termostatli",                 price:399000,  image:"/images/heater.png",    category:"Isitish va sovutish", rating:4.4 },
+  { id:"p18", name:"Havo namlagich", title:"3L, Night mode",                     price:349000,  image:"/images/humidifier.png",category:"Isitish va sovutish", rating:4.5 },
+  { id:"p19", name:"Havo tozalagich",title:"HEPA 13, 3 rejim",                   price:1199000, image:"/images/airpurifier.png",category:"Isitish va sovutish", rating:4.6 },
 
 
-  { id:"p20", name:"Fen",            title:"2200W, Ion tech",                    price:299000,  image:"./images/hairdryer.png", category:"Shaxsiy parvarish", rating:4.4 },
-  { id:"p21", name:"Trimmer",        title:"Soqol uchun, 4 nasadka",            price:199000,  image:"./images/trimmer.png",   category:"Shaxsiy parvarish", rating:4.5 },
-  { id:"p22", name:"Elektr tish cho'tkasi", title:"2 rejim, 30 kun batareya",    price:249000,  image:"./images/toothbrush.png",category:"Shaxsiy parvarish", rating:4.6 },
-  { id:"p24", name:"Massaj qurilma", title:"Neck & back, 3 rejim",               price:449000,  image:"./images/massager.png",  category:"Shaxsiy parvarish", rating:4.4 },
+  { id:"p20", name:"Fen",            title:"2200W, Ion tech",                    price:299000,  image:"/images/hairdryer.png", category:"Shaxsiy parvarish", rating:4.4 },
+  { id:"p21", name:"Trimmer",        title:"Soqol uchun, 4 nasadka",            price:199000,  image:"/images/trimmer.png",   category:"Shaxsiy parvarish", rating:4.5 },
+  { id:"p22", name:"Elektr tish cho'tkasi", title:"2 rejim, 30 kun batareya",    price:249000,  image:"/images/toothbrush.png",category:"Shaxsiy parvarish", rating:4.6 },
+  { id:"p24", name:"Massaj qurilma", title:"Neck & back, 3 rejim",               price:449000,  image:"/images/massager.png",  category:"Shaxsiy parvarish", rating:4.4 },
 
-  { id:"p25", name:"Smart TV Box",   title:"Android TV Box 4/64GB",              price:399000,  image:"./images/tvbox.png",     category:"Aqlli uy jihozlari", rating:4.4 },
-  { id:"p26", name:"Smart kamera",   title:"Wi-Fi, Night vision",                price:299000,  image:"./images/camera.png",    category:"Aqlli uy jihozlari", rating:4.5 },
-  { id:"p27", name:"Smart rozetka",  title:"Wi-Fi, Timer, App control",          price:99000,   image:"./images/socket.png",    category:"Aqlli uy jihozlari", rating:4.3 },
-  { id:"p28", name:"Smart lampochka",title:"RGB, 16 mln rang",                   price:129000,  image:"./images/bulb.png",      category:"Aqlli uy jihozlari", rating:4.4 },
-  { id:"p29", name:"Smart kolonka",  title:"Voice assistant, Bluetooth",         price:499000,  image:"./images/smartspeaker.png",category:"Aqlli uy jihozlari", rating:4.5 },
+  { id:"p25", name:"Smart TV Box",   title:"Android TV Box 4/64GB",              price:399000,  image:"/images/tvbox.png",     category:"Aqlli uy jihozlari", rating:4.4 },
+  { id:"p26", name:"Smart kamera",   title:"Wi-Fi, Night vision",                price:299000,  image:"/images/camera.png",    category:"Aqlli uy jihozlari", rating:4.5 },
+  { id:"p27", name:"Smart rozetka",  title:"Wi-Fi, Timer, App control",          price:99000,   image:"/images/socket.png",    category:"Aqlli uy jihozlari", rating:4.3 },
+  { id:"p28", name:"Smart lampochka",title:"RGB, 16 mln rang",                   price:129000,  image:"/images/bulb.png",      category:"Aqlli uy jihozlari", rating:4.4 },
+  { id:"p29", name:"Smart kolonka",  title:"Voice assistant, Bluetooth",         price:499000,  image:"/images/smartspeaker.png",category:"Aqlli uy jihozlari", rating:4.5 },
 ];
 
 const PRODUCTS_NEW = [
-  { id:"n1", name:"Air Fryer",        title:"7L, 12 dastur, LED",                 price:1099000, image:"./images/airfryer2.png",  category:"Oshxona texnikasi", rating:4.7 },
-  { id:"n2", name:"Robot changyutgich", title:"Lidar, 3000Pa",                    price:3199000, image:"./images/robotvac2.png",  category:"Tozalash texnikasi", rating:4.8 },
-  { id:"n3", name:"Konditsioner",     title:"12 BTU, Inverter, A++",              price:6299000, image:"./images/ac2.png",        category:"Isitish va sovutish", rating:4.6 },
-  { id:"n4", name:"Elektr tish cho'tkasi", title:"Smart timer, 2 boshcha",        price:299000,  image:"./images/toothbrush2.png",category:"Shaxsiy parvarish", rating:4.7 },
-  { id:"n5", name:"Smart kamera",     title:"2K, Motion detect, Cloud",           price:349000,  image:"./images/camera2.png",    category:"Aqlli uy jihozlari", rating:4.6 },
+  { id:"n1", name:"Air Fryer",        title:"7L, 12 dastur, LED",                 price:1099000, image:"/images/airfryer2.png",  category:"Oshxona texnikasi", rating:4.7 },
+  { id:"n2", name:"Robot changyutgich", title:"Lidar, 3000Pa",                    price:3199000, image:"/images/robotvac2.png",  category:"Tozalash texnikasi", rating:4.8 },
+  { id:"n3", name:"Konditsioner",     title:"12 BTU, Inverter, A++",              price:6299000, image:"/images/ac2.png",        category:"Isitish va sovutish", rating:4.6 },
+  { id:"n4", name:"Elektr tish cho'tkasi", title:"Smart timer, 2 boshcha",        price:299000,  image:"/images/toothbrush2.png",category:"Shaxsiy parvarish", rating:4.7 },
+  { id:"n5", name:"Smart kamera",     title:"2K, Motion detect, Cloud",           price:349000,  image:"/images/camera2.png",    category:"Aqlli uy jihozlari", rating:4.6 },
 ];
 
 function getCart(){ try { return JSON.parse(localStorage.getItem("cart")) || []; } catch { return []; } }
@@ -89,7 +89,7 @@ function productCardHTML(p){
       <div class="detail">
         <p class="icon">
           <button class="likeBtn ${liked}" type="button" data-fav-id="${p.id}">
-            <img src="./images/sevimlilar.png" alt="like">
+            <img src="/images/sevimlilar.png" alt="like">
           </button>
 
           <button class="addCartBtn" type="button"
@@ -98,7 +98,7 @@ function productCardHTML(p){
             data-title="${p.title}"
             data-price="${p.price}"
             data-image="${p.image}">
-            <img class="savatcha" src="./images/add cart.png" alt="add cart">
+            <img class="savatcha" src="/images/add cart.png" alt="add cart">
           </button>
         </p>
 
@@ -140,7 +140,7 @@ function gridCard(p){
 
         <div class="pactions">
           <button class="iconBtn likeBtn ${liked}" type="button" data-fav-id="${p.id}">
-            <img src="./images/sevimlilar.png" alt="like" style="width:20px;height:20px;">
+            <img src="/images/sevimlilar.png" alt="like" style="width:20px;height:20px;">
           </button>
 
           <button class="iconBtn addCartBtn" type="button"
@@ -149,7 +149,7 @@ function gridCard(p){
             data-title="${p.title}"
             data-price="${p.price}"
             data-image="${p.image}">
-            <img src="./images/add cart.png" alt="cart" style="width:20px;height:20px;">
+            <img src="/images/add cart.png" alt="cart" style="width:20px;height:20px;">
           </button>
         </div>
       </div>

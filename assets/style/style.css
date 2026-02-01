@@ -657,7 +657,7 @@
 }
 
 .backgraund {
-    background-image: url(./images/chegirmalar.png);
+    background-image: url(/images/chegirmalar.png);
     height: 690px;
     padding: 50px 0 60px 0;
 }
@@ -765,7 +765,7 @@
 }
 
 .backgraund-news {
-    background-image: url(./images/yangiliklar.png);
+    background-image: url(/images/yangiliklar.png);
     height: 489px;
     padding: 71px 78px;
 }

@@ -1,12 +1,12 @@
 const PRODUCTS_POPULAR = [
-  { id: "p1", name: "Kompyuter",  title: "Lenovo Intel i3-1315U Win11S", price: 6076000,  image: "./images/laptop.jpg", category:"Kompyuterlar" },
-  { id: "p2", name: "Soat",       title: "Samsung Galaxy Watch 7",      price: 2019000,  image: "./images/soat1.jpg",   category:"Aqlli soatlar" },
-  { id: "p3", name: "Holodilnik", title: "LG GC-B459MLWM",              price: 10286000, image: "./images/muzlatgich.jpg", category:"Maishiy texnika" },
-  { id: "p4", name: "Soat",       title: "Luxury Wristwatch Women Blue",price: 1200000,  image: "./images/soat1.jpg",   category:"Aksessuar" },
+  { id: "p1", name: "Kompyuter",  title: "Lenovo Intel i3-1315U Win11S", price: 6076000,  image: "/images/laptop.jpg", category:"Kompyuterlar" },
+  { id: "p2", name: "Soat",       title: "Samsung Galaxy Watch 7",      price: 2019000,  image: "/images/soat1.jpg",   category:"Aqlli soatlar" },
+  { id: "p3", name: "Holodilnik", title: "LG GC-B459MLWM",              price: 10286000, image: "/images/muzlatgich.jpg", category:"Maishiy texnika" },
+  { id: "p4", name: "Soat",       title: "Luxury Wristwatch Women Blue",price: 1200000,  image: "/images/soat1.jpg",   category:"Aksessuar" },
 ];
 const PRODUCTS_NEW = [
-  { id: "n1", name: "Kompyuter", title: "Lenovo Intel i3-1315U Win11S", price: 6076000, image: "./images/laptop.jpg", category:"Kompyuterlar" },
-  { id: "n2", name: "Soat",      title: "Samsung Galaxy Watch 7",      price: 2019000, image: "./images/soat1.jpg",   category:"Aqlli soatlar" },
+  { id: "n1", name: "Kompyuter", title: "Lenovo Intel i3-1315U Win11S", price: 6076000, image: "/images/laptop.jpg", category:"Kompyuterlar" },
+  { id: "n2", name: "Soat",      title: "Samsung Galaxy Watch 7",      price: 2019000, image: "/images/soat1.jpg",   category:"Aqlli soatlar" },
 ];
 
 function getCart(){ try { return JSON.parse(localStorage.getItem("cart")) || []; } catch { return []; } }
@@ -26,12 +26,12 @@ function productCardHTML(p){
       <div class="detail">
         <p class="icon">
           <button class="likeBtn ${liked}" type="button" data-fav-id="${p.id}">
-            <img src="./images/sevimlilar.png" alt="like">
+            <img src="/images/sevimlilar.png" alt="like">
           </button>
           <button class="addCartBtn" type="button"
             data-id="${p.id}" data-name="${p.name}" data-title="${p.title}"
             data-price="${p.price}" data-image="${p.image}">
-            <img class="savatcha" src="./images/add cart.png" alt="add cart">
+            <img class="savatcha" src="/images/add cart.png" alt="add cart">
           </button>
         </p><br>
         <strong>${p.name}</strong><br>

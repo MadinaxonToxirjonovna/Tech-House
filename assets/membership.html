@@ -1,35 +1,33 @@
-  <!DOCTYPE html>
-  <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savatcha</title>
-
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./cart.css" />
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/membership.css">
+    <title>Tariflar</title>
+</head>
+<body>
 <header class="header">
   <div class="container">
     <div class="top-bar">
       
       <div class="logo">
-        <a href="home.html"><img src="./images/logo.png" alt="logo"></a>
+        <a href="./home.html"><img src="../images/logo.png" alt="logo"></a>
       </div>
       <div class="search">
-        <img src="./images/search.svg" alt="search">
+        <img src="../images/search.svg" alt="search">
         <input id="globalSearch" type="text" placeholder="Nimani qidiryapsiz?">
       </div>
 
       <div class="nav-icons">
 
         <a class="sevimlilarr" href="./favorites.html">
-          <img src="./images/sevimlilar1.png" alt="sevimlilar">
+          <img src="../images/sevimlilar1.png" alt="sevimlilar">
           <span>Sevimlilar <b id="favCount">(0)</b></span>
         </a>
 
         <a class="savatchaa" href="./cart.html">
-          <img src="./images/savatcha.png" alt="savatcha">
+          <img src="../images/savatcha.png" alt="savatcha">
           <span>Savatcha <b id="cartCount">(0)</b></span>
         </a>
 
@@ -40,51 +38,98 @@
 
     <div class="bottom-bar">
       <nav>
-        <a href="home.html">Bosh sahifa</a>
-        <a href="products.html">Mahsulotlar</a>
-        <a href="membership.html">A'zolik/Ta'riflar</a>
-        <a href="about.html">Biz haqimizda</a>
-        <a href="contact.html">Bog'lanish</a>
+        <a href="./home.html">Bosh sahifa</a>
+        <a href="./products.html">Mahsulotlar</a>
+        <a href="./membership.html">A'zolik/Ta'riflar</a>
+        <a href="./about.html">Biz haqimizda</a>
+        <a href="./contact.html">Bog'lanish</a>
       </nav>
     </div>
   </div>
 </header>
 
+    <section class="paketlar">
+  <div class="container">
+     <h2 class="mini-title">Ta'riflar</h2>
+        <hr class="mini-hr">
+    <div class="paketlar__grid">
+      <article class="paket1">
+        <div class="paket__head">
+          <img class="paket__icon" src="../images/image 16.svg" alt="bronza">
+          <h3 class="paket__name bronza">Bronza a’zolik</h3>
+        </div>
+        <hr>
 
-  <section class="cartPage">
-    <div class="container">
-      <h1 class="mini-title">Savatcha</h1>
-      <hr class="mini-hr">
+        <ul class="paket__list">
+          <li><button class="dotItem" type="button">Asosiy sodiqlik ballari</button></li>
+          <li><button class="dotItem" type="button">Tanlangan chegirmalar</button></li>
+          <li><button class="dotItem" type="button">Maxsus aksiyalar</button></li>
+        </ul>
+      </article>
 
-      <div class="cartGrid">
-        <div class="cartList" id="cartItems"></div>
+      <article class="paket2 paket--active">
+        <div class="paket__head">
+          <img class="paket__icon" src="../images/kumush.svg" alt="kumush">
+          <h3 class="paket__name kumush">Kumush a’zolik</h3>
+        </div>
+        <hr>
 
-        <aside class="cartSummary">
-          <h3>Buyurtma xulosasi</h3>
+        <ul class="paket__list">
+          <li><button class="dotItem" type="button">Asosiy sodiqlik ballari</button></li>
+          <li><button class="dotItem" type="button">Tanlangan chegirmalar</button></li>
+          <li><button class="dotItem" type="button">Maxsus aksiyalar</button></li>
+        </ul>
+      </article>
 
-          <div class="sumRow">
-            <span>Mahsulotlar soni</span>
-            <b id="itemCount">0</b>
-          </div>
+      <article class="paket3">
+        <div class="paket__head">
+          <img class="paket__icon" src="../images/oltin.svg" alt="oltin">
+          <h3 class="paket__name oltin">Oltin a’zolik</h3>
+        </div>
+        <hr>
 
-          <div class="sumRow">
-            <span>Jami summa</span>
-            <b id="totalPrice">0 so'm</b>
-          </div>
-
-          <button class="checkoutBtn" type="button">Buyurtma berish</button>
-          <button class="clearBtn" id="clearCart" type="button">Savatchani tozalash</button>
-        </aside>
-      </div>
+        <ul class="paket__list">
+          <li><button class="dotItem" type="button">Asosiy sodiqlik ballari</button></li>
+          <li><button class="dotItem" type="button">Tanlangan chegirmalar</button></li>
+          <li><button class="dotItem" type="button">Maxsus aksiyalar</button></li>
+        </ul>
+      </article>
     </div>
-  </section>
+
+  
+    <article class="biznes">
+  <img class="biznes__img" src="../images/quti.png" alt="quti">
+
+  <div class="biznes__content">
+    <h3 class="biznes__title">Biznes / Ulgurji paketlar</h3>
+
+    <div class="biznes__line"></div>
+
+    <p class="biznes__desc">
+      Katta hajmda sotib olish imkoniyatlari<br>
+      Korxonalar uchun individual narxlar
+    </p>
+
+    <div class="biznes__line"></div>
+
+    <ul class="biznes__list">
+      <li><span class="dot"></span> Ulgurji chegirmalar</li>
+      <li><span class="dot"></span> Maxsus biznes yechimlari</li>
+    </ul>
+    <button><a class="btn" href="./membership.html">Barcha tariflarni ko‘rish</a>
+</button>
+  </div>
+</article>
+
+  </div>
+</section>
 
   <footer class="footer">
     <div class="container footer__grid">
 
       <div class="footer__about">
         <div class="footer__logo">
-          <img src="./images/logo 1.png" alt="Tech House logo">
+          <img src="../images/logo 1.png" alt="Tech House logo">
         </div>
 
         <p class="footer__desc">
@@ -101,7 +146,7 @@
             </svg>
           </a>
           <a data-social="Telegram" style="--accent-color: #229ED9;" href="https://t.me/codingtogo" target="_blank">
-            <img style="width: 35px; height: 35px;" src="./images/telegram.svg" alt="telegram">
+            <img style="width: 35px; height: 35px;" src="../images/telegram.svg" alt="telegram">
           </a>
           <a data-social="Instagram" style="--accent-color: #fe107c;" href="#">
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -125,10 +170,10 @@
       <div class="footer__col">
         <h4>Havolalar</h4>
         <ul>
-          <li><a href="#">Asosiy</a></li>
-          <li><a href="#">Xizmatlar</a></li>
-          <li><a href="#">Paketlar</a></li>
-          <li><a href="#">Aloqa</a></li>
+          <li><a href="./home.html">Asosiy</a></li>
+          <li><a href="./products.html">Xizmatlar</a></li>
+          <li><a href="./membership.html">Paketlar</a></li>
+          <li><a href="./contact.html">Aloqa</a></li>
         </ul>
       </div>
 
@@ -146,9 +191,9 @@
       <div class="footer__col">
         <h4>Biz bilan aloqa</h4>
 
-        <p><img class="icon" src="./images/telephone.svg"> +998 (90) 123-45-67</p>
-        <p><img class="icon" src="./images/gmail.svg"> info@techhouse.uz</p>
-        <p><img class="icon" src="./images/location.svg"> Toshkent, Amir Temur 55</p>
+        <p><img class="icon" src="../images/telephone.svg"> +998 (90) 123-45-67</p>
+        <p><img class="icon" src="../images/gmail.svg"> info@techhouse.uz</p>
+        <p><img class="icon" src="../images/location.svg"> Toshkent, Amir Temur 55</p>
 
 
 
@@ -160,7 +205,8 @@
       © 2026 Tech House. Barcha huquqlar himoyalangan.
     </div>
   </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="./js/main.js"></script>
 
-  <script src="cart.js"></script>
-  </body>
-  </html>
+</body>
+</html>
