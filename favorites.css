@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #fff;
+  border-bottom: 1px solid rgba(33, 41, 59, 0.10);
+}
+
+
+.favPage{
+  padding: 20px 0 40px;
+}
+
+.favActions{
+  display:flex;
+  justify-content:flex-end;
+  margin: 10px 0 14px;
+}
+
+.clearFavBtn{
+  border: 1px solid rgba(0,0,0,.12);
+  background:#fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor:pointer;
+  font-weight: 600;
+}
+
+.clearFavBtn:hover{
+  opacity:.9;
+}
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.emptyFav{
+  padding: 40px 16px;
+  border: 1px dashed rgba(0,0,0,.18);
+  border-radius: 14px;
+  text-align:center;
+  font-size: 18px;
+  opacity: .85;
+  margin-top: 18px;
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
