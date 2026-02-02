@@ -14,7 +14,9 @@ function getFavs(){ try { return JSON.parse(localStorage.getItem("favorites")) |
 function saveFavs(f){ localStorage.setItem("favorites", JSON.stringify(f)); }
 function updateCartCount(){ const el=document.getElementById("cartCount"); if(el) el.textContent=`(${getCart().reduce((s,i)=>s+(i.qty||0),0)})`; }
 function updateFavCount(){ const el=document.getElementById("favCount"); if(el) el.textContent=`(${getFavs().length})`; }
-function isFav(id){ return getFavs().includes(id); }
+// old favs=["p1","p2"] bo‘lsa ham ishlasin
+function favIdOf(x){ return (typeof x === "string") ? x : x?.id; }
+function isFav(id){ return getFavs().some(x => favIdOf(x) === id); }
 function allProducts(){ return [...PRODUCTS_POPULAR, ...PRODUCTS_NEW]; }
 function findProductById(id){ return allProducts().find(p=>p.id===id) || null; }
 
@@ -43,8 +45,14 @@ function productCardHTML(p){
 }
 
 function openSingle(id){
-  const p=findProductById(id);
+  let p=findProductById(id);
+  if(!p){
+    // localStorage'dagi object'dan qidiramiz
+    const favs = getFavs();
+    p = favs.find(x => favIdOf(x) === id);
+  }
   if(!p) return;
+
   localStorage.setItem("selectedProduct", JSON.stringify({
     id:p.id, name:p.name, title:p.title, price:p.price, image:p.image,
     category:p.category||"-", desc:p.desc||"Ushbu mahsulot uy uchun qulay va zamonaviy yechim."
@@ -64,7 +72,13 @@ function renderFavorites(){
     box.innerHTML=`<div class="emptyFav">❤️ Sevimlilar hozircha bo‘sh</div>`;
     return;
   }
-  const list=favs.map(id=>findProductById(id)).filter(Boolean);
+
+  // favs ichida object'lar bo'lsa o'shani ishlatamiz, string bo'lsa findProductById
+  const list = favs.map(x => {
+    if(typeof x === "object" && x !== null) return x;
+    return findProductById(x);
+  }).filter(Boolean);
+
   box.innerHTML=list.map(productCardHTML).join("");
 }
 
@@ -73,11 +87,18 @@ document.addEventListener("click",(e)=>{
   if(likeBtn){
     const id=likeBtn.dataset.favId;
     let favs=getFavs();
-    if(favs.includes(id)){
-      favs=favs.filter(x=>x!==id);
+    const exists = favs.some(x => favIdOf(x) === id);
+
+    if(exists){
+      favs=favs.filter(x=>favIdOf(x)!==id);
       likeBtn.classList.remove("active");
     }else{
-      favs.push(id);
+      // Bu sahifada yangi qo'shish qiyinroq (object topish kerak),
+      // lekin favorites.js da asosan o'chirish bo'ladi.
+      // Agar renderFavorites'dan kelgan bo'lsa, object bor edi.
+      const p = findProductById(id);
+      if(p) favs.push(p);
+      else favs.push(id); // fallback
       likeBtn.classList.add("active");
     }
     saveFavs(favs);

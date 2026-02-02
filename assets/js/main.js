@@ -60,19 +60,8 @@ function initNavbarSearch(){
     const q = globalSearch.value.trim();
     if(!q) return;
 
-    if(location.pathname.toLowerCase().includes("products.html")){
-      const searchInput = $("searchInput");
-      if(searchInput){
-        searchInput.value = q;
-        searchInput.dispatchEvent(new Event("input", { bubbles:true }));
-      }
-      return;
-    }
-
+    // Har doim products.html ga yo'naltiramiz, chunki home page da hamma mahsulot yo'q
     location.href = `products.html?q=${encodeURIComponent(q)}`;
-
-
-
   });
 
 
@@ -196,9 +185,17 @@ function initSearch(){
 
   function apply(q){
     const query = q.toLowerCase().trim();
-    document.querySelectorAll("#productList li, #newProductList li").forEach(li=>{
-      li.style.display = li.innerText.toLowerCase().includes(query) ? "" : "none";
+    const items = document.querySelectorAll("#productList li, #newProductList li");
+    let found = 0;
+    
+    items.forEach(li=>{
+      const matches = li.innerText.toLowerCase().includes(query);
+      li.style.display = matches ? "" : "none";
+      if(matches) found++;
     });
+
+    // Agar topilmasa va qidiruv bo'sh bo'lmasa, xabar chiqarish mumkin
+    // Lekin home page da faqat enter bosishni kutamiz.
   }
 
   globalSearch.addEventListener("input", ()=> apply(globalSearch.value));
