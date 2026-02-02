@@ -148,7 +148,7 @@
     height: 500px;
     padding: 205px 0 205px 0;
     color: #B6BFCC;
-    background-image: url(/images/contact\ bg.png);
+    background-image: url(../images/contact\ bg.png);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -267,7 +267,7 @@
     background: transparent;
     width: 100%;
     height: 500px;
-    background-image: url(/images/contact.png);
+    background-image: url(../images/contact.png);
 }
 
 

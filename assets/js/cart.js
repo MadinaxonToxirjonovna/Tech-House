@@ -57,10 +57,21 @@ document.addEventListener("click",(e)=>{
   const minus=e.target.closest(".qtyBtn.minus");
   const rm=e.target.closest(".removeBtn");
   const clear=e.target.closest("#clearCart");
+  const checkout=e.target.closest(".checkoutBtn");
 
   if(clear){
     saveCart([]);
     renderCart();
+    return;
+  }
+
+  if(checkout){
+    const cart = getCart();
+    if(cart.length > 0){
+      window.location.href = "./checkout.html";
+    } else {
+      alert("Savatcha bo'sh!");
+    }
     return;
   }
 
