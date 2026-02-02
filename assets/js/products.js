@@ -298,13 +298,14 @@ function toggleFavById(id){
   let page = 1;
   const pageSize = 9;
 
-  function getFilters(){
-    const q = ((searchInput?.value || "") + " " + (globalSearch?.value || ""))
-      .toLowerCase().trim();
+    function getFilters(){
+      const sVal = (searchInput?.value || "").trim();
+      const gVal = (globalSearch?.value || "").trim();
+      const q = (sVal || gVal).toLowerCase();
 
-    return {
-      q,
-      minP: Number(minPrice?.value || 0),
+      return {
+        q,
+        minP: Number(minPrice?.value || 0),
       maxP: Number(maxPrice?.value || 0),
       minR: Number(minRating?.value || 0),
       sort: sortSelect?.value || "popular"
