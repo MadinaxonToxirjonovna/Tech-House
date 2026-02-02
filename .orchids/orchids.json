@@ -1,0 +1,7 @@
+{
+  "projectId": "f1b1722a-a4f1-4f13-b6dd-58c9a861a8b8",
+  "createdAt": 1770003071553,
+  "startupCommands": [
+    "npx -y serve -p 3000 assets"
+  ]
+}

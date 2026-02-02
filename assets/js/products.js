@@ -2,7 +2,7 @@ const PRODUCTS_POPULAR = [
   { id:"p1",  name:"Blender",        title:"Bosch 1200W, 2 tezlik",              price:649000,  image:"/images/blender.png",   category:"Oshxona texnikasi", rating:4.6 },
   { id:"p2",  name:"Mikser",         title:"BOMA qo'l mikseri, 5 tezlik",        price:289000,  image:"/images/mixer.png",     category:"Oshxona texnikasi", rating:4.4 },
   { id:"p3",  name:"Elektr choynak", title:"Xiaomi Kettle 1.5L",                 price:259000,  image:"/images/kettle.png",    category:"Oshxona texnikasi", rating:4.5 },
-  { id:"p4",  name:"Mikroto'lqinli pech", title:"Panasonic 20L, 800W",                price:1099000, image:"/images/micro.png",     category:"Oshxona texnikasi", rating:4.4 },
+  { id:"p4",  name:"Mikroto'lqinli pech", title:"Panasonic 20L, 800W",           price:1099000, image:"/images/micro.png",     category:"Oshxona texnikasi", rating:4.4 },
   { id:"p5",  name:"Air Fryer",      title:"6L, 10 dastur",                      price:899000,  image:"/images/airfryer.png",  category:"Oshxona texnikasi", rating:4.6 },
   { id:"p6",  name:"Kofe mashina",   title:"DeLonghi, Cappuccino",               price:2999000, image:"/images/coffee.png",    category:"Oshxona texnikasi", rating:4.7 },
   { id:"p7",  name:"Toster",         title:"2 bo'limli, 7 rejim",                price:299000,  image:"/images/toaster.png",   category:"Oshxona texnikasi", rating:4.3 },
@@ -21,8 +21,9 @@ const PRODUCTS_POPULAR = [
   { id:"p19", name:"Havo tozalagich",title:"HEPA 13, 3 rejim",                   price:1199000, image:"/images/airpurifier.png",category:"Isitish va sovutish", rating:4.6 },
 
 
+
   { id:"p20", name:"Fen",            title:"2200W, Ion tech",                    price:299000,  image:"/images/hairdryer.png", category:"Shaxsiy parvarish", rating:4.4 },
-  { id:"p21", name:"Trimmer",        title:"Soqol uchun, 4 nasadka",            price:199000,  image:"/images/trimmer.png",   category:"Shaxsiy parvarish", rating:4.5 },
+  { id:"p21", name:"Trimmer",        title:"Soqol uchun, 4 nasadka",             price:199000,  image:"/images/trimmer.png",   category:"Shaxsiy parvarish", rating:4.5 },
   { id:"p22", name:"Elektr tish cho'tkasi", title:"2 rejim, 30 kun batareya",    price:249000,  image:"/images/toothbrush.png",category:"Shaxsiy parvarish", rating:4.6 },
   { id:"p24", name:"Massaj qurilma", title:"Neck & back, 3 rejim",               price:449000,  image:"/images/massager.png",  category:"Shaxsiy parvarish", rating:4.4 },
 
@@ -41,11 +42,22 @@ const PRODUCTS_NEW = [
   { id:"n5", name:"Smart kamera",     title:"2K, Motion detect, Cloud",           price:349000,  image:"/images/camera2.png",    category:"Aqlli uy jihozlari", rating:4.6 },
 ];
 
+
 function getCart(){ try { return JSON.parse(localStorage.getItem("cart")) || []; } catch { return []; } }
 function saveCart(c){ localStorage.setItem("cart", JSON.stringify(c)); }
 
-function getFavs(){ try { return JSON.parse(localStorage.getItem("favorites")) || []; } catch { return []; } }
+function getFavs(){
+  try { return JSON.parse(localStorage.getItem("favorites")) || []; }
+  catch { return []; }
+}
 function saveFavs(f){ localStorage.setItem("favorites", JSON.stringify(f)); }
+
+
+function favIdOf(x){ return (typeof x === "string") ? x : x?.id; }
+function isFav(id){
+  return getFavs().some(x => favIdOf(x) === id);
+}
+
 
 function updateCartCount(){
   const el = document.getElementById("cartCount");
@@ -58,9 +70,12 @@ function updateFavCount(){
   const el = document.getElementById("favCount");
   if(!el) return;
   el.textContent = `(${getFavs().length})`;
+
 }
 
-function isFav(id){ return getFavs().includes(id); }
+
+
+
 
 function showToast(text){
   const t=document.createElement("div");
@@ -108,26 +123,10 @@ function productCardHTML(p){
       </div>
     </li>
   `;
+
+
 }
 
-function applyQueryFromURL(){
-  const params = new URLSearchParams(location.search);
-  const q = (params.get("q") || "").trim();
-  if(!q) return;
-
-  const globalSearch = document.getElementById("globalSearch");
-  const searchInput  = document.getElementById("searchInput");
-
-  if(globalSearch) globalSearch.value = q;
-  if(searchInput){
-    searchInput.value = q;
-    searchInput.dispatchEvent(new Event("input", { bubbles:true }));
-  }
-}
-
-document.addEventListener("DOMContentLoaded", ()=>{
-  applyQueryFromURL();
-});
 
 
 function gridCard(p){
@@ -169,6 +168,21 @@ function gridCard(p){
   `;
 }
 
+function applyQueryFromURL(){
+  const params = new URLSearchParams(location.search);
+  const q = (params.get("q") || "").trim();
+  if(!q) return;
+
+  const globalSearch = document.getElementById("globalSearch");
+  const searchInput  = document.getElementById("searchInput");
+
+  if(globalSearch) globalSearch.value = q;
+  if(searchInput){
+    searchInput.value = q;
+    searchInput.dispatchEvent(new Event("input", { bubbles:true }));
+  }
+}
+
 function addToCartFromDataset(ds){
   const item = {
     id: (ds.id || "").trim(),
@@ -202,6 +216,7 @@ function openSingle(id){
     price: p.price,
     image: p.image,
     category: p.category || "-",
+    rating: p.rating || 4.5,
     desc: p.desc || "Ushbu mahsulot uy uchun qulay va zamonaviy yechim."
   }));
 
@@ -228,9 +243,39 @@ function renderCategories(){
   if(first) first.classList.add("is-active");
 }
 
+function toggleFavById(id){
+  const p = findProductById(id);
+  if(!p) return;
+
+  let favs = getFavs();
+
+  const exists = favs.some(x => favIdOf(x) === id);
+  if(exists){
+    favs = favs.filter(x => favIdOf(x) !== id);
+    saveFavs(favs);
+    updateFavCount();
+    showToast("💔 Sevimlilardan olib tashlandi");
+    return false;
+  } else {
+    favs.push({
+      id: p.id,
+      name: p.name,
+      title: p.title,
+      price: p.price,
+      image: p.image,
+      category: p.category || "",
+      rating: p.rating || 4.5
+    });
+    saveFavs(favs);
+    updateFavCount();
+    showToast("❤️ Sevimlilarga qo‘shildi");
+    return true;
+  }
+}
+
 (function initProductsPage(){
   const grid = document.getElementById("productsGrid");
-  if(!grid) return; 
+  if(!grid) return;
 
   const newBox = document.getElementById("newProductList");
   if(newBox) newBox.innerHTML = PRODUCTS_NEW.map(productCardHTML).join("");
@@ -266,7 +311,7 @@ function renderCategories(){
     };
   }
 
-  function render(){
+  function renderGrid(){
     const {q, minP, maxP, minR, sort} = getFilters();
     let list = allProducts();
 
@@ -284,7 +329,8 @@ function renderCategories(){
 
     if(minP) list = list.filter(p => Number(p.price || 0) >= minP);
     if(maxP) list = list.filter(p => Number(p.price || 0) <= maxP);
-
+   
+   
     if(minR) list = list.filter(p => Number(p.rating || 4.5) >= minR);
 
     if(sort === "cheap")     list.sort((a,b)=> Number(a.price) - Number(b.price));
@@ -311,13 +357,19 @@ function renderCategories(){
     const btn = e.target.closest(".catBtn");
     if(!btn) return;
 
-    selectedCategory = btn.dataset.cat || "Hammasi";
 
+
+
+
+    selectedCategory = btn.dataset.cat || "Hammasi";
+ 
+ 
+ 
     document.querySelectorAll(".catBtn").forEach(b => b.classList.remove("is-active"));
     btn.classList.add("is-active");
 
     page = 1;
-    render();
+    renderGrid();
   });
 
   grid.addEventListener("click",(e)=>{
@@ -337,7 +389,7 @@ function renderCategories(){
     }
   });
 
-  applyBtn?.addEventListener("click", ()=>{ page = 1; render(); });
+  applyBtn?.addEventListener("click", ()=>{ page = 1; renderGrid(); });
   resetBtn?.addEventListener("click", ()=>{
     if(searchInput) searchInput.value = "";
     if(globalSearch) globalSearch.value = "";
@@ -345,38 +397,28 @@ function renderCategories(){
     if(maxPrice) maxPrice.value = "";
     if(minRating) minRating.value = "0";
     page = 1;
-    render();
+    renderGrid();
   });
 
-  sortSelect?.addEventListener("change", ()=>{ page = 1; render(); });
-
+  sortSelect?.addEventListener("change", ()=>{ page = 1; renderGrid(); });
   [searchInput, globalSearch].filter(Boolean).forEach(inp=>{
-    inp.addEventListener("input", ()=>{ page = 1; render(); });
+    inp.addEventListener("input", ()=>{ page = 1; renderGrid(); });
   });
 
-  prevBtn?.addEventListener("click", ()=>{ page--; render(); });
-  nextBtn?.addEventListener("click", ()=>{ page++; render(); });
+  prevBtn?.addEventListener("click", ()=>{ page--; renderGrid(); });
+  nextBtn?.addEventListener("click", ()=>{ page++; renderGrid(); });
 
   document.addEventListener("click",(e)=>{
     const likeBtn = e.target.closest(".likeBtn");
     if(likeBtn){
       const id = likeBtn.dataset.favId;
-      let favs = getFavs();
+      const activeNow = toggleFavById(id);
 
-      if(favs.includes(id)){
-        favs = favs.filter(x => x !== id);
-        likeBtn.classList.remove("active");
-        showToast("💔 Sevimlilardan olib tashlandi");
-      }else{
-        favs.push(id);
-        likeBtn.classList.add("active");
-        showToast("❤️ Sevimlilarga qo‘shildi");
-      }
+      if(activeNow) likeBtn.classList.add("active");
+      else likeBtn.classList.remove("active");
 
-      saveFavs(favs);
-      updateFavCount();
-
-      render();
+      if(newBox) newBox.innerHTML = PRODUCTS_NEW.map(productCardHTML).join("");
+      renderGrid();
       return;
     }
 
@@ -387,15 +429,9 @@ function renderCategories(){
     }
   });
 
-  document.addEventListener("DOMContentLoaded", ()=>{
-    renderCategories();
-    updateCartCount();
-    updateFavCount();
-    render();
-  });
-
   renderCategories();
   updateCartCount();
   updateFavCount();
-  render();
+  applyQueryFromURL();
+  renderGrid();
 })();

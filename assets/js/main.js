@@ -16,6 +16,10 @@ function saveCart(c){ localStorage.setItem("cart", JSON.stringify(c)); }
 function getFavs(){ try { return JSON.parse(localStorage.getItem("favorites")) || []; } catch { return []; } }
 function saveFavs(f){ localStorage.setItem("favorites", JSON.stringify(f)); }
 
+// old favs=["p1","p2"] bo‘lsa ham ishlasin
+function favIdOf(x){ return (typeof x === "string") ? x : x?.id; }
+function isFav(id){ return getFavs().some(x => favIdOf(x) === id); }
+
 function updateCartCount(){
   const el = document.getElementById("cartCount");
   if(!el) return;
@@ -27,7 +31,7 @@ function updateFavCount(){
   if(!el) return;
   el.textContent = `(${getFavs().length})`;
 }
-function isFav(id){ return getFavs().includes(id); }
+
 
 function showToast(text){
   const t=document.createElement("div");
@@ -56,8 +60,7 @@ function initNavbarSearch(){
     const q = globalSearch.value.trim();
     if(!q) return;
 
-    if(location.pathname.toLowerCase().includes("./products.html")){
-
+    if(location.pathname.toLowerCase().includes("products.html")){
       const searchInput = $("searchInput");
       if(searchInput){
         searchInput.value = q;
@@ -67,15 +70,47 @@ function initNavbarSearch(){
     }
 
     location.href = `products.html?q=${encodeURIComponent(q)}`;
+
+
+
   });
+
+
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  initNavbarSearch();
-});
+
 
 function allProducts(){ return [...PRODUCTS_POPULAR, ...PRODUCTS_NEW]; }
 function findProductById(id){ return allProducts().find(p=>p.id===id) || null; }
+
+function toggleFavById(id){
+  const p = findProductById(id);
+  if(!p) return false;
+
+  let favs = getFavs();
+  const exists = favs.some(x => favIdOf(x) === id);
+
+  if(exists){
+    favs = favs.filter(x => favIdOf(x) !== id);
+    saveFavs(favs);
+    updateFavCount();
+    showToast("💔 Sevimlilardan olib tashlandi");
+    return false;
+  }
+
+  favs.push({
+    id: p.id,
+    name: p.name,
+    title: p.title,
+    price: p.price,
+    image: p.image,
+    category: p.category || "",
+  });
+  saveFavs(favs);
+  updateFavCount();
+  showToast("❤️ Sevimlilarga qo‘shildi");
+  return true;
+}
 
 function productCardHTML(p){
   const liked = isFav(p.id) ? "active" : "";
@@ -184,23 +219,15 @@ function initSlider(){
 }
 
 document.addEventListener("click",(e)=>{
+
   const likeBtn=e.target.closest(".likeBtn");
   if(likeBtn){
     const id=likeBtn.dataset.favId;
-    let favs=getFavs();
+    const activeNow = toggleFavById(id);
 
-    if(favs.includes(id)){
-      favs=favs.filter(x=>x!==id);
-      likeBtn.classList.remove("active");
-      showToast("💔 Sevimlilardan olib tashlandi");
-    }else{
-      favs.push(id);
-      likeBtn.classList.add("active");
-      showToast("❤️ Sevimlilarga qo‘shildi");
-    }
-
-    saveFavs(favs);
-    updateFavCount();
+    if(activeNow) likeBtn.classList.add("active");
+    else likeBtn.classList.remove("active");
+    renderHome();
     return;
   }
 
@@ -218,6 +245,7 @@ document.addEventListener("click",(e)=>{
 });
 
 document.addEventListener("DOMContentLoaded",()=>{
+  initNavbarSearch();
   initSlider();
   renderHome();
   initSearch();
